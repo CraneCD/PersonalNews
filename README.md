@@ -6,7 +6,11 @@ the world. Ten items each, ordered by consequence rather than recency.
 
 ## Reading it
 
-Open `index.html`. No build step, no dependencies, no server required — the page
+The current edition is published as a private page at
+<https://claude.ai/code/artifact/0ce40990-d3dc-4079-b96f-acab393769a3> — the daily
+run redeploys that same URL, so the link never changes.
+
+To read it from the repo instead, open `index.html`. No build step, no dependencies, no server required — the page
 works straight off the filesystem as well as from any static host (GitHub Pages,
 Netlify, S3). Editions are picked from the dropdown; the theme button flips
 light/dark, and the page follows the OS setting by default.
@@ -68,6 +72,16 @@ the site so the prompt and the output never drift apart.
 
 The schedule itself is a Claude Code Routine firing at 13:00 UTC (08:00 COT, UTC-5;
 Colombia does not observe daylight saving, so the UTC hour is stable year-round).
+Each firing starts a fresh session, researches the last 24 hours, writes the new
+edition, pushes it, and redeploys the published page.
+
+### Sourcing constraint
+
+The session's egress policy blocks direct HTTPS to news domains — `WebFetch` and
+`curl` both get a 403 from the proxy on CONNECT. Editions are therefore compiled
+from web-search results, which means individual articles are not opened and
+re-read before publication. That limitation belongs in each edition's `caveats`
+array rather than going unmentioned.
 
 ## Layout
 
