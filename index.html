@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El Brief · Resumen diario de noticias</title>
+  <meta name="description" content="Resumen diario de noticias de Medellín, Colombia y el mundo, ordenado por importancia.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="masthead">
+      <h1><span class="the">Edición diaria · 08:00 COT</span>El Brief</h1>
+      <div class="dateline" id="dateline"></div>
+      <div class="toolbar">
+        <select id="edition" aria-label="Elegir edición"></select>
+        <button class="ghost-btn" id="theme" type="button">Cambiar tema</button>
+      </div>
+    </header>
+
+    <main id="main">
+      <p class="empty">Cargando…</p>
+    </main>
+  </div>
+
+  <script src="data/manifest.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
