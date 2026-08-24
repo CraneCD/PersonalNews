@@ -57,11 +57,50 @@ overall. Keep the whole thing tight — I'm reading this over coffee.
 
 ## Publishing
 
+The run starts with **no repository attached** — a scheduled firing is a fresh
+session, and bare `git` commands in the home directory fail with *"not a git
+repository"*. Get a writable checkout before anything else:
+
+1. Look for an existing clone (`ls -d /home/user/*/.git`, then check
+   `git -C <dir> remote -v`). If one points at `CraneCD/PersonalNews` and
+   `git -C <dir> rev-parse HEAD` succeeds, use it — do not re-clone.
+2. Otherwise call `add_repo` with owner `CraneCD`, repo `PersonalNews`, access
+   `push`, follow its clone instructions once (inline, generous timeout), then
+   call `register_repo_root` with the clone path.
+3. Keep the path in `REPO` and prefix every git command with `git -C "$REPO"`.
+4. Sync onto the target branch before editing, so the push is a fast-forward:
+
+   ```sh
+   git -C "$REPO" fetch origin claude/daily-news-brief-site-prn7s5
+   git -C "$REPO" checkout claude/daily-news-brief-site-prn7s5
+   git -C "$REPO" reset --hard origin/claude/daily-news-brief-site-prn7s5
+   ```
+
+Then publish:
+
 1. Write the edition to `data/briefs/<YYYY-MM-DD>.js` following the shape of the
    existing files (a single `window.NewsDesk.register({...})` call).
 2. Prepend the new date to `window.NewsDeskManifest` in `data/manifest.js`.
-3. Commit and push to the working branch.
-4. Publish/redeploy the Artifact so the edition is readable in a browser.
+3. Syntax-check both files (`node --check`) — cheap, and it catches the one
+   mistake that would blank the page.
+4. Commit, then push with an **explicit refspec**:
+
+   ```sh
+   git -C "$REPO" push -u origin HEAD:refs/heads/claude/daily-news-brief-site-prn7s5
+   ```
+
+   `git push origin <branch>` pushes the *local* branch of that name. In a fresh
+   session that local branch can be an older checkout while the new commit sits
+   on a different HEAD, so the push reports "Everything up-to-date" and the
+   edition never lands. On network failure retry up to four times with 2s/4s/8s/16s
+   backoff. Never force-push, never rewrite history, never publish to another branch.
+5. Verify it landed — `git -C "$REPO" ls-remote origin claude/daily-news-brief-site-prn7s5`
+   must equal `git -C "$REPO" rev-parse HEAD`. If it does not, quote the exact push
+   output rather than reporting success.
+6. Publish/redeploy the Artifact so the edition is readable in a browser.
+
+The push is the deliverable that must always land. A failed render check or a
+failed Artifact redeploy is reported, not worked around by skipping the push.
 
 Record any sourcing limitation (a blocked outlet, a claim that could not be
 cross-checked) in the edition's `caveats` array rather than omitting it silently.
