@@ -67,8 +67,13 @@ the manifest, so that is the only index to keep in sync.
 ## The daily run
 
 `prompts/daily-brief.md` holds the standing editor instruction — ranking rules,
-exclusions, the source list, and the publishing steps. It is versioned alongside
-the site so the prompt and the output never drift apart.
+exclusions, the source list, and the publishing steps. `prompts/routine-prompt.md`
+holds the message the schedule itself sends, ready to paste into the claude.ai
+Routines UI. Both are versioned alongside the site so the prompts and the output
+never drift apart.
+
+The Routine must be created **with `CraneCD/PersonalNews` attached as its
+repository** — that is what gives each firing a checkout and permission to push.
 
 The schedule itself is a Claude Code Routine firing at 13:00 UTC (08:00 COT, UTC-5;
 Colombia does not observe daylight saving, so the UTC hour is stable year-round).
