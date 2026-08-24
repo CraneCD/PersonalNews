@@ -75,26 +75,38 @@ Colombia does not observe daylight saving, so the UTC hour is stable year-round)
 Each firing starts a fresh session, researches the last 24 hours, writes the new
 edition, pushes it, and redeploys the published page.
 
-### The fresh session has no repository
+### Why editions stopped landing
 
-A Routine created through `create_trigger` carries an environment and a prompt —
-it cannot carry a repository source. So unlike a session you start from the app,
-a fired session boots with nothing checked out: `git status` in the home directory
-answers *"not a git repository"*, and every push attempt fails. Between
-2026-07-29 and 2026-08-24 that is why no edition landed.
+Between 2026-07-29 and 2026-08-24 no edition reached the repo. The schedule was
+minted through `create_trigger`, and a Routine created that way carries an
+environment and a prompt but no repository source. A probe run on 2026-08-24
+established what such a firing actually gets:
 
-The run therefore attaches the repo itself, as the first thing it does:
+| | |
+|---|---|
+| repository checked out | none — `git status` answers *"not a git repository"* |
+| `add_repo` / any `mcp__*` tool | absent; `ToolSearch` finds no match |
+| `git clone` over HTTPS | works |
+| `git fetch` / `checkout` / `add` / `commit` | all succeed |
+| `git push` | **refused by the auto-mode permission classifier before git runs** |
 
-1. `add_repo` with owner `CraneCD`, repo `PersonalNews`, access `push`
-2. clone once to the path it names, then `register_repo_root`
-3. `git -C "$REPO" …` for everything after that
+The push is a permission decision, not a credential or network failure, and it
+is not something the run should route around. So no prompt wording can make an
+MCP-minted Routine publish here: the schedule itself has to be created with the
+repository attached — from the claude.ai Routines UI, so firings get a source
+and an outcome branch — or bound to a persistent session that already holds a
+checkout.
 
-The second half of the fix is the push refspec. `git push -u origin
-claude/daily-news-brief-site-prn7s5` pushes the *local* branch of that name — in a
-fresh checkout that can be an older commit than HEAD, so git reports "Everything
-up-to-date" and the edition silently stays local. Push
-`HEAD:refs/heads/claude/daily-news-brief-site-prn7s5` instead, then confirm with
-`git ls-remote` that the remote sha matches HEAD.
+Publishing the Artifact *does* work from a fired session, which is why the
+reading copy can be current while the repo archive is stale. When the push is
+refused the run hands the edition files back with `SendUserFile` rather than
+discarding them.
+
+One detail worth keeping even once the permission side is solved: push
+`HEAD:refs/heads/claude/daily-news-brief-site-prn7s5`, not the bare branch name.
+A bare name pushes the *local* branch of that name, which in a fresh checkout can
+sit behind HEAD, so git reports "Everything up-to-date" and the edition silently
+stays local. Confirm with `git ls-remote` that the remote sha matches HEAD.
 
 ### Sourcing constraint
 

@@ -57,50 +57,60 @@ overall. Keep the whole thing tight — I'm reading this over coffee.
 
 ## Publishing
 
-The run starts with **no repository attached** — a scheduled firing is a fresh
-session, and bare `git` commands in the home directory fail with *"not a git
-repository"*. Get a writable checkout before anything else:
+### What a scheduled firing can and cannot do
 
-1. Look for an existing clone (`ls -d /home/user/*/.git`, then check
-   `git -C <dir> remote -v`). If one points at `CraneCD/PersonalNews` and
-   `git -C <dir> rev-parse HEAD` succeeds, use it — do not re-clone.
-2. Otherwise call `add_repo` with owner `CraneCD`, repo `PersonalNews`, access
-   `push`, follow its clone instructions once (inline, generous timeout), then
-   call `register_repo_root` with the clone path.
-3. Keep the path in `REPO` and prefix every git command with `git -C "$REPO"`.
-4. Sync onto the target branch before editing, so the push is a fast-forward:
+A Routine minted through `create_trigger` fires a session with no repository
+source. Probed directly on 2026-08-24, such a session has:
 
-   ```sh
-   git -C "$REPO" fetch origin claude/daily-news-brief-site-prn7s5
-   git -C "$REPO" checkout claude/daily-news-brief-site-prn7s5
-   git -C "$REPO" reset --hard origin/claude/daily-news-brief-site-prn7s5
-   ```
+- **no repository checked out** — `git status` in the home directory answers
+  *"fatal: not a git repository"*;
+- **no MCP tools at all** — there is no `add_repo`, so the repo cannot be
+  attached from inside the run. `ToolSearch` for it returns no match;
+- **working read access** — a plain `git clone https://github.com/CraneCD/PersonalNews`
+  succeeds;
+- **no write access** — `git push` is refused by the Claude Code auto-mode
+  permission classifier *before git runs*. `fetch`, `checkout`, `add` and
+  `commit` all succeed; only the push is blocked. It is a permission decision,
+  not a credential or network failure, and it must not be routed around.
 
-Then publish:
+So an MCP-minted Routine cannot publish to the repo. Fixing that means changing
+how the schedule is created, not what this prompt says — either create the
+Routine from the claude.ai Routines UI with the repo attached, so its firings
+get a source and an outcome branch, or bind it to a persistent session that
+already has a checkout.
 
-1. Write the edition to `data/briefs/<YYYY-MM-DD>.js` following the shape of the
+Publishing the **Artifact** does work from a fired session, so the reading copy
+stays current even while the repo archive cannot be written.
+
+### The steps
+
+1. Get a checkout: `git clone https://github.com/CraneCD/PersonalNews` (or use one
+   already present). Keep the path in `REPO` and prefix git commands with
+   `git -C "$REPO"`. Work on `claude/daily-news-brief-site-prn7s5` so any push is
+   a fast-forward.
+2. Write the edition to `data/briefs/<YYYY-MM-DD>.js` following the shape of the
    existing files (a single `window.NewsDesk.register({...})` call).
-2. Prepend the new date to `window.NewsDeskManifest` in `data/manifest.js`.
-3. Syntax-check both files (`node --check`) — cheap, and it catches the one
+3. Prepend the new date to `window.NewsDeskManifest` in `data/manifest.js`.
+4. Syntax-check both files (`node --check`) — cheap, and it catches the one
    mistake that would blank the page.
-4. Commit, then push with an **explicit refspec**:
+5. Commit, then push with an **explicit refspec**:
 
    ```sh
    git -C "$REPO" push -u origin HEAD:refs/heads/claude/daily-news-brief-site-prn7s5
    ```
 
-   `git push origin <branch>` pushes the *local* branch of that name. In a fresh
-   session that local branch can be an older checkout while the new commit sits
-   on a different HEAD, so the push reports "Everything up-to-date" and the
-   edition never lands. On network failure retry up to four times with 2s/4s/8s/16s
-   backoff. Never force-push, never rewrite history, never publish to another branch.
-5. Verify it landed — `git -C "$REPO" ls-remote origin claude/daily-news-brief-site-prn7s5`
-   must equal `git -C "$REPO" rev-parse HEAD`. If it does not, quote the exact push
-   output rather than reporting success.
-6. Publish/redeploy the Artifact so the edition is readable in a browser.
-
-The push is the deliverable that must always land. A failed render check or a
-failed Artifact redeploy is reported, not worked around by skipping the push.
+   `git push origin <branch>` pushes the *local* branch of that name, which in a
+   fresh checkout can sit behind HEAD — git then reports "Everything up-to-date"
+   and the edition never lands. Never force-push, never rewrite history, never
+   publish to another branch.
+6. Verify — `git -C "$REPO" ls-remote origin claude/daily-news-brief-site-prn7s5`
+   must equal `git -C "$REPO" rev-parse HEAD`. If it does not, quote the exact
+   push output rather than reporting success.
+7. If the push was refused, hand the files over instead of dropping them: send
+   `data/briefs/<YYYY-MM-DD>.js` and `data/manifest.js` with `SendUserFile` so the
+   edition can be committed by hand, and say plainly in the summary that the push
+   was blocked.
+8. Publish/redeploy the Artifact so the edition is readable in a browser.
 
 Record any sourcing limitation (a blocked outlet, a claim that could not be
 cross-checked) in the edition's `caveats` array rather than omitting it silently.
