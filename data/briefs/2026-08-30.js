@@ -7,7 +7,7 @@ window.NewsDesk.register({
   topOfDay: [
     "En el mundo, Venezuela y Estados Unidos anunciaron un histórico acuerdo petrolero de 25 años por 65.000 millones de barriles, mientras las inundaciones entre Nepal y Tíbet superan los 750 muertos y un bombardeo ruso de 28 horas sobre la región de Kiev dejó 38 muertos en el depósito de municiones más letal atacado este año.",
     "En Colombia, De la Espriella anunció una revisión integral de contrataciones 'ministerio por ministerio' para acabar con las 'roscas' y alineó la política exterior hacia Venezuela con Washington, en momentos en que el Gobierno revisó al alza el déficit fiscal a 7,2% del PIB para 2026 y a 9,4% para 2027.",
-    "En Medellín, incendios forestales golpean a siete municipios de Antioquia con apoyo de la Fuerza Aeroespacial en Abejorral, mientras la disputa por el control de Comfenalco Antioquia llegó a la Fiscalía por una presunta 'telaraña azul' que buscaría apropiarse de $1 billón, y el Ejército refuerza a Ituango tras el desplazamiento de más de 200 personas."
+    "En Medellín, incendios forestales golpean a siete municipios de Antioquia con apoyo de la Fuerza Aeroespacial en Abejorral, el Clan del Golfo secuestró a cuatro personas en Anorí (entre ellas el presidente de una Junta de Acción Comunal), y la disputa por el control de Comfenalco Antioquia llegó a la Fiscalía por una presunta 'telaraña azul' que buscaría apropiarse de $1 billón."
   ],
   sections: [
     {
@@ -23,6 +23,12 @@ window.NewsDesk.register({
           url: "https://www.bluradio.com/regiones/antioquia/sequia-golpea-a-antioquia-casi-10-municipios-enfrentan-incendios-por-fenomeno-de-el-nino-rg10"
         },
         {
+          headline: "El Clan del Golfo secuestra a cuatro personas en Anorí, incluido el presidente de una Junta de Acción Comunal",
+          summary: "En la vereda Liberia, criminales del Clan del Golfo retuvieron al líder comunal y a tres jóvenes. El gobernador Andrés Julián Rendón convocó un consejo de seguridad extraordinario y pidió al Gobierno Nacional el despliegue permanente de Ejército, Armada y Policía en la zona.",
+          source: "Infobae",
+          url: "https://www.infobae.com/colombia/2026/08/29/clan-del-golfo-secuestro-a-tres-jovenes-y-al-presidente-de-una-jac-en-anori-antioquia-es-urgente-recuperar-la-seguridad/"
+        },
+        {
           headline: "El Ejército y la Policía refuerzan a Ituango tras el desplazamiento de más de 200 personas por combates entre el Clan del Golfo y disidencias",
           summary: "La disputa por el control territorial en la vereda La Filadelfia y el corregimiento El Aro, activa desde mediados de agosto, ha obligado a huir hacia el casco urbano a familias de varias veredas. La Fuerza Pública se comprometió a reforzar su presencia en la zona mientras continúa la atención humanitaria a los desplazados.",
           source: "Blu Radio",
@@ -33,6 +39,12 @@ window.NewsDesk.register({
           summary: "La ministra Natalia López anunció que entregará a la Fiscalía pruebas sobre una presunta red de intereses políticos que buscaría apoderarse de la caja de compensación, con cerca de $1 billón en juego. Un juez de Heliconia ordenó mantener la fecha, hora y lugar de la asamblea de la entidad, prevista para el 31 de agosto, en medio del pulso judicial por la elección de sus nuevos directivos.",
           source: "El Tiempo",
           url: "https://www.eltiempo.com/justicia/investigacion/disputa-por-el-control-de-comfenalco-antioquia-llegara-a-la-fiscalia-tras-denuncia-de-la-ministra-de-trabajo-3580964"
+        },
+        {
+          headline: "Cae alias 'Soldo', señalado coordinador de sicarios de la estructura 'La Sierra' y uno de los más buscados por homicidio en Medellín",
+          summary: "En los allanamientos ligados a la captura, las autoridades incautaron armas de fuego, munición, dosis de estupefacientes y propaganda alusiva al Clan del Golfo, dentro de la ofensiva contra el multicrimen que la Policía sostiene en la ciudad.",
+          source: "El Tiempo",
+          url: "https://www.eltiempo.com/colombia/medellin/golpe-a-la-sierra-en-medellin-cayo-alias-soldo-presunto-coordinador-de-sicarios-y-uno-de-los-mas-buscados-por-homicidio-3580268"
         },
         {
           headline: "25 hospitales públicos de Antioquia suspenden atención no urgente a los afiliados de Nueva EPS por una deuda de $450.000 millones",
@@ -73,10 +85,10 @@ window.NewsDesk.register({
           url: "https://www.elobservador.com.uy/estados-unidos/america-latina/de-la-espriella-subordina-la-politica-colombia-venezuela-washington-que-implica-la-relacion-bilateral-n6052833"
         },
         {
-          headline: "El déficit fiscal de Colombia se revisa al alza a 7,2% del PIB para 2026 y a 9,4% para 2027",
-          summary: "La actualización del Plan Financiero del Gobierno eleva la meta de déficit total y del déficit primario, en un contexto de mayor gasto por la reconstrucción tras el terremoto y presión sobre unas cuentas públicas que el nuevo gobierno atribuye a la administración anterior.",
-          source: "Forbes Colombia",
-          url: "https://forbes.co/economia-y-finanzas/sinceramiento-fiscal-del-gobierno-revela-un-deficit-fiscal-de-94-del-pib-para-2027"
+          headline: "Petro acusa al Gobierno De la Espriella de 'inexperiencia e improvisación' por el aumento de la deuda en el presupuesto de 2027",
+          summary: "El expresidente cuestionó que el nuevo proyecto de $634,9 billones —ampliado por la reconstrucción tras el terremoto de agosto— eleve la deuda pública como proporción del PIB a 66,2% en 2027, en momentos en que el propio Gobierno revisó al alza su meta de déficit fiscal a 7,2% del PIB para 2026 y a 9,4% para 2027.",
+          source: "Infobae",
+          url: "https://www.infobae.com/colombia/2026/08/29/petro-alerto-por-el-aumento-de-la-deuda-con-el-presupuesto-para-2027-y-lanzo-fuerte-advertencia-demostrando-inexperiencia-e-improvisacion/"
         },
         {
           headline: "La reforma tributaria de De la Espriella eliminaría el impuesto al patrimonio y llegaría al Congreso en septiembre",
@@ -109,16 +121,16 @@ window.NewsDesk.register({
           url: "https://www.infobae.com/colombia/2026/08/29/el-centro-democratico-entrega-ayuda-humanitaria-y-tecnologica-a-afectados-en-el-choco-tras-el-terremoto-del-10-de-agosto/"
         },
         {
-          headline: "El Gobierno convoca una asamblea extraordinaria de Ecopetrol para el 15 de septiembre y revela su plancha para renovar la junta directiva",
-          summary: "La propuesta busca renovar seis de las nueve sillas de la junta como parte de una estrategia centrada en fortalecer el negocio de hidrocarburos, revisar irregularidades internas y recuperar la confianza de accionistas minoritarios, en medio de la caída de la producción de la petrolera.",
-          source: "Valora Analitik",
-          url: "https://www.valoraanalitik.com/confirmado-gobierno-citara-asamblea-de-ecopetrol-para-el-15-de-septiembre-y-revela-plancha-para-la-junta/"
+          headline: "Nuevo golpe al ELN: el Gobierno anuncia la captura de cuatro integrantes del Frente Camilo Torres",
+          summary: "El presidente Abelardo de la Espriella confirmó la operación como parte de la ofensiva militar contra los grupos armados que reemplazó las mesas de diálogo heredadas del gobierno anterior.",
+          source: "Infobae",
+          url: "https://www.infobae.com/colombia/2026/08/29/nuevo-golpe-al-eln-el-presidente-abelardo-de-la-espriella-anuncio-la-captura-de-cuatro-integrantes-del-frente-camilo-torres/"
         },
         {
-          headline: "La Fiscalía conforma un equipo para investigar más de 80 casos de presunta corrupción en el gobierno Petro",
-          summary: "La fiscal Luz Adriana Camargo anunció la creación del grupo tras recibir un dosier de denuncias entregado por el gobierno De la Espriella, que serán objeto de valoración por parte del ente investigador.",
-          source: "El Heraldo",
-          url: "https://www.elheraldo.co/colombia/2026/08/18/fiscal-camargo-anuncio-la-conformacion-de-un-equipo-para-investigar-los-mas-de-80-casos-de-supuesta-corrupcion-en-el-gobierno-petro/"
+          headline: "El Gobierno extraditó a ocho colombianos a Estados Unidos y Austria por narcotráfico, lavado de activos y trata de personas",
+          summary: "Seis de los procesados fueron entregados a la justicia estadounidense y dos a la austriaca; entre ellos figuran presuntos integrantes de estructuras dedicadas al movimiento de droga por rutas marítimas del Caribe.",
+          source: "El Espectador",
+          url: "https://www.elespectador.com/judicial/un-exfutbolista-un-cantante-y-otros-seis-colombianos-extraditados-a-estados-unidos-por-narcotrafico-noticias-hoy/"
         }
       ]
     },
@@ -177,10 +189,10 @@ window.NewsDesk.register({
           url: "https://news.un.org/en/story/2026/08/1168182"
         },
         {
-          headline: "Noruega despide al rey Harald V en un funeral de Estado marcado por la ausencia de la reina Mette-Marit",
-          summary: "El servicio central se realiza este domingo en la iglesia de Asker con el rey Haakon VIII, la reina Sonia y sus hijos; después, el monarca será sepultado en la cripta de la fortaleza de Akershus. Mette-Marit no asiste por su recuperación de un trasplante de pulmón.",
-          source: "El Español",
-          url: "https://www.elespanol.com/corazon/casas-reales/20260829/casa-real-noruega-confirma-fecha-lugar-funeral-harald-marcado-ausencia-mette-marit/1003744366820_0.html"
+          headline: "La guerra de Estados Unidos e Israel contra Irán llega a los seis meses sin fin a la vista, mientras persiste el bloqueo del Estrecho de Ormuz",
+          summary: "Trump ya no busca revivir el memorando de entendimiento de junio con Teherán y endurece sus condiciones para acabar el conflicto, mientras Irán insiste en que resistirá las sanciones y las reservas petroleras estratégicas de EE. UU. han caído por debajo de 300 millones de barriles.",
+          source: "Al Jazeera",
+          url: "https://www.aljazeera.com/news/liveblog/2026/8/29/iran-war-live-irgc-asserts-strait-control-us-enforces-blockade"
         },
         {
           headline: "Trump confirma que Xi Jinping visitará la Casa Blanca el 24 de septiembre, en medio de una nueva amenaza arancelaria a China",
@@ -193,12 +205,11 @@ window.NewsDesk.register({
   ],
   caveats: [
     "Esta edición se compiló exclusivamente con resultados de búsqueda web (WebSearch): la política de la sesión no permite abrir directamente los sitios de los medios (WebFetch/curl), así que los titulares, cifras y fechas exactas no pudieron verificarse abriendo cada artículo completo; los enlaces apuntan a la fuente citada en los resultados de búsqueda.",
-    "La sección de Medellín/Antioquia quedó en 6 ítems, cuatro por debajo de la meta de 10. Fue un domingo con ciclo institucional lento (Concejo, Congreso y tribunales no sesionan) y varias historias sustantivas de las últimas 24 horas ya habían sido cubiertas en la edición del 29 de agosto (racionamiento de agua de EPM, incendios en Tres Cruces/Belén/San Cristóbal, alerta por dengue, tendencia de homicidios, crecimiento económico de Antioquia, embargo a Kevin Thobias, crisis de la Universidad de Antioquia en su fase anterior), por lo que se prefirió omitir su repetición sin novedad antes que rellenar con contenido de poca sustancia (contrabando de cigarrillos, fútbol, investigaciones disciplinarias de meses atrás en municipios menores).",
-    "Varias fuentes usadas no pertenecen a la lista priorizada del prompt. Para Medellín/Antioquia se usó Semana (Metro de la 80) y El Espectador (Universidad de Antioquia) por no encontrarse cobertura equivalente en Telemedellín, Caracol Radio o El Tiempo Antioquia en la búsqueda disponible. Para Colombia se usó ampliamente Infobae, además de El Observador de Uruguay (única fuente hallada con el análisis específico del giro de política exterior hacia Venezuela; tómese con cautela adicional por no ser un medio colombiano ni especializado), Forbes Colombia, La FM, Valora Analitik y El Heraldo. Para el mundo se usó Al Jazeera y Bloomberg (de la lista priorizada), además de ABC News Australia, Euronews, NPR, CNBC, El Español y UN News, todos medios reputados pero fuera de la lista original.",
+    "La sección de Medellín/Antioquia quedó en 8 ítems, dos por debajo de la meta de 10. Fue un domingo con ciclo institucional lento (Concejo, Congreso y tribunales no sesionan) y varias historias sustantivas de las últimas 24 horas ya habían sido cubiertas en la edición del 29 de agosto (racionamiento de agua de EPM, incendios en Tres Cruces/Belén/San Cristóbal, alerta por dengue, tendencia de homicidios, crecimiento económico de Antioquia, embargo a Kevin Thobias), por lo que se prefirió omitir su repetición sin novedad antes que rellenar con contenido de poca sustancia (contrabando de cigarrillos, fútbol, investigaciones disciplinarias de meses atrás en municipios menores).",
+    "Varias fuentes usadas no pertenecen a la lista priorizada del prompt. Para Medellín/Antioquia se usó Infobae (secuestro en Anorí) y Semana (Metro de la 80) por no encontrarse cobertura equivalente en Telemedellín, Caracol Radio o El Tiempo Antioquia en la búsqueda disponible; El Tiempo y El Espectador, ambos en la lista priorizada para Colombia, se usaron también aquí por ser las fuentes más sólidas encontradas para hechos puntuales de Medellín. Para Colombia se usó ampliamente Infobae y El Espectador (ambos con cobertura sólida), además de El Observador de Uruguay (única fuente hallada con el análisis específico del giro de política exterior hacia Venezuela; tómese con cautela adicional por no ser un medio colombiano ni especializado), La FM y El Colombiano. Para el mundo se usó Al Jazeera y Bloomberg (de la lista priorizada), además de ABC News Australia, Euronews, NPR, CNBC y UN News, todos medios reputados pero fuera de la lista original.",
     "La cifra de muertos por las inundaciones de Nepal-Tíbet varía fuertemente entre fuentes consultadas el mismo día (359 según una nota de Reuters, 626 en Al Jazeera, 670 según AP/NPR, 750 en ABC Australia y Rappler), reflejo de actualizaciones asincrónicas del desastre; se reporta la cifra más alta y más reciente hallada, pero debe tomarse como una estimación en movimiento, no un balance oficial único.",
-    "La cifra del déficit fiscal (7,2% del PIB en 2026 y 9,4% en 2027, Forbes Colombia) no pudo fecharse con certeza dentro de las últimas 24 horas en la búsqueda disponible; se incluyó por ser información sustantiva y no repetida de ediciones anteriores, pero podría corresponder a un análisis de días o semanas atrás sobre una actualización del Plan Financiero.",
-    "El ítem sobre el equipo de la Fiscalía para investigar 80 casos de corrupción del gobierno Petro (El Heraldo) corresponde a un anuncio del 18 de agosto, no de las últimas 24 horas; se incluyó por ser un desarrollo institucional relevante y no cubierto en ediciones previas de este brief, con esta salvedad explícita.",
     "El dato de la Universidad de Antioquia presenta una inconsistencia entre fuentes: El Espectador y otros medios hablan de un recorte superior a $100.000 millones, mientras BluRadio reporta $65.000 millones; además, un resultado de búsqueda mostró una URL de Infobae con fecha 2025 para contenido que discute explícitamente el presupuesto de 2026, lo que sugiere un posible error de indexación. Se usó El Espectador como fuente principal por describir un comunicado fechado explícitamente el 30 de agosto de 2026, pero la cifra exacta del recorte debe tomarse con cautela.",
+    "El ítem sobre la extradición de ocho colombianos combina información parcialmente consistente entre medios sobre la identidad exacta de los extraditados; se usó El Espectador como fuente principal por ser la más sólida encontrada en la búsqueda disponible.",
     "El acuerdo petrolero Venezuela-EE. UU. presenta una discrepancia de fuentes sobre su duración real (25 años según funcionarios venezolanos, hasta 100 años según reportes basados en fuentes estadounidenses); se reporta la versión oficial venezolana con la salvedad explícita en el propio ítem.",
     "El ítem sobre Chad y Sudán no tuvo actualización propia dentro de las últimas 24 horas en la búsqueda disponible; la información más reciente hallada data del 28 de agosto. Se incluyó por ser una escalada activa y no cubierta en ediciones anteriores de este brief."
   ]
