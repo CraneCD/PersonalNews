@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch origin claude/daily-news-brief-site-prn7s5)",
+      "Bash(git checkout claude/daily-news-brief-site-prn7s5)",
+      "Bash(git reset --hard origin/claude/daily-news-brief-site-prn7s5)",
+      "Bash(git add *)",
+      "Bash(git commit -m *)",
+      "Bash(git push -u origin HEAD:refs/heads/claude/daily-news-brief-site-prn7s5)",
+      "Bash(git status*)",
+      "Bash(git rev-parse*)",
+      "Bash(git ls-remote*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(node --check*)",
+      "Artifact"
+    ]
+  }
+}
