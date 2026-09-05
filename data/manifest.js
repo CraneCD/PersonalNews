@@ -2,6 +2,7 @@
  * Newest first. The daily job prepends one entry per edition.
  */
 window.NewsDeskManifest = [
+  { date: "2026-09-05", weekday: "Sábado" },
   { date: "2026-09-04", weekday: "Viernes" },
   { date: "2026-09-03", weekday: "Jueves" },
   { date: "2026-09-02", weekday: "Miércoles" },
